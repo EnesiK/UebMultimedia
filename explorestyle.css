@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Armata&display=swap');
-
-*{
+/* Updated CSS */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Armata", sans-serif;
-    background-color:  #0360FB4C;
 }
 
-header{
+body {
+    background: #f0f0f0;
+}
+
+header {
     z-index: 999;
     position: absolute;
     top: 0;
@@ -17,25 +19,26 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 200px;
+    padding: 15px 50px;
+    background: rgba(3, 96, 251, 0.3);
     transition: 0.5s ease;
 }
 
-header .brand{
-    color: #fff;
-    font-size: 1. Sem;
+header .brand {
+    color: #ffffff;
+    font-size: 1.5em;
     font-weight: 700;
     text-transform: uppercase;
     text-decoration: none;
 }
 
-header .navigation{
+header .navigation {
     position: relative;
 }
 
-header .navigation .navigation-items a{
+header .navigation .navigation-items a {
     position: relative;
-    color: #fff;
+    color: #ffffff;
     font-size: 1em;
     font-weight: 500;
     text-decoration: none;
@@ -43,16 +46,269 @@ header .navigation .navigation-items a{
     transition: 0.3s ease;
 }
 
-header .navigation .navigation-items a:before{
+header .navigation .navigation-items a:before {
     content: '';
     position: absolute;
-    background: #de1c1c;
+    background: #ffffff;
     width: 0;
     height: 3px;
     bottom: 0;
     left: 0;
+    transition: 0.3s ease;
 }
 
-header .navigation .navigation-items a:hover:before{
-  width: 100%;  
+header .navigation .navigation-items a:hover:before {
+    width: 100%;
 }
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #2696E9;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    overflow: hidden;
+    position: relative;
+}
+
+.runway {
+    position: relative;
+    width: 400px;
+    height: 100vh;
+    background: #1378bc;
+    border-left: 20px solid rgba(0, 0, 0, 0.25);
+    border-right: 20px solid rgba(0, 0, 0, 0.25);
+    transition: transform 1s;
+    transition-delay: 0.5s;
+}
+
+.hero:active .runway {
+    transform: scaleX(0.7);
+}
+
+.runway::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 100%;
+    background: repeating-linear-gradient(transparent 0%, transparent 50%, #fff 50%, #fff 100%);
+    background-size: 20px 320px;
+    animation: animateRunway 0.5s linear infinite;
+}
+
+.hero:active .runway::before {
+    animation: animateRunway 0.25s linear infinite;
+}
+
+@keyframes animateRunway {
+    0% {
+        background-position-y: 0px;
+    }
+    100% {
+        background-position-y: 640px;
+    }
+}
+
+.plane {
+    position: absolute;
+    bottom: 120px;
+    max-width: 250px;
+    filter: drop-shadow(10px 10px 0 rgba(0, 0, 0, 0.5));
+    transition: 5s;
+}
+
+.plane-clicked {
+    max-width: 500px;
+    filter: drop-shadow(200px 200px 0 rgba(0, 0, 0, 0));
+    animation: fly 5s forwards, land 2s 5s cubic-bezier(0.42, 0, 0.58, 1) forwards;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-50vh) translateX(25vw);
+    }
+    100% {
+        transform: translateY(-100vh) translateX(50vw);
+    }
+}
+.foto {
+    position: absolute;
+    right: 80px;
+    top: 25%; /* Adjusted top position */
+    transform: translateY(-50%);
+    padding: 20px;
+    text-align: center; /* Center the text */
+    
+}
+
+.foto img {
+    max-width: 285px; /* Adjusted max-width value */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+.foto.below {
+    top: 55%; /* Adjusted top position */
+    right: 80px;
+}
+
+.foto.below img {
+    max-width: 285px; /* Adjusted max-width value */
+    border-radius: 10px; /* Reduced border radius */
+    height: auto;
+}
+
+.foto.below .description p {
+    font-size: 0.8em; /* Smaller font size */
+}
+
+.foto.below1 {
+    top: 81%; /* Adjusted top position */
+    right: 80px;
+}
+
+.foto.below1 img {
+    max-width: 285px; /* Adjusted max-width value */
+    border-radius: 10px; /* Reduced border radius */
+    height: auto;
+}
+
+.foto.below1 .description p {
+    font-size: 0.8em; /* Smaller font size */
+}
+
+/* Positioning and styling for the second and third photos */
+.foto.left {
+    left: -70%;
+    top: calc(26% + 6px);
+}
+.foto.left img {
+    max-width: 285px; /* Adjusted max-width value */
+    border-radius: 10px; /* Reduced border radius */
+    height: auto;
+}
+
+.foto.below.left{
+    left: -70%;
+    top: calc(51% + 50px);
+}
+.foto.below.left img {
+    max-width: 285px; /* Adjusted max-width value */
+    border-radius: 10px; /* Reduced border radius */
+    height: auto;
+}
+
+.foto.below.left1{
+    left: -70%;
+    top: calc(77% + 70px);
+}
+.foto.below.left1 img {
+    max-width: 285px; /* Adjusted max-width value */
+    border-radius: 10px; /* Reduced border radius */
+    height: auto;
+}
+
+.foto.left-side.below {
+    left: 50px; /* Adjusted left position */
+    top: calc(50% + 200px); /* Adjusted top position */
+}
+
+.foto.below img {
+    max-width: 250px; /* Adjusted max-width value */
+    border-radius: 8px; /* Reduced border radius */
+}
+
+.foto.below .description p {
+    font-size: 0.8em; /* Smaller font size */
+}
+
+.description {
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px; /* Adjust spacing from the image */
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: 0.6s;
+}
+.description:hover{
+    opacity: 1;
+}
+.description > *{
+    transform: translateY(25px);
+    transition: transform 0.6s;
+}
+.description:hover > *{
+    transform: translateY(0px);
+}
+
+
+.description p {
+    color: #fff; /* Text color */
+    font-size: 0.9em; /* Smaller font size */
+    line-height: 1.6;
+    margin: 0; /* Remove default margin */
+    max-height: 3.6em; /* Limit the height to three lines */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Display ellipsis (...) for overflow text */
+    
+}
+.description {
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px; /* Adjust spacing from the image */
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: 0.6s;
+}
+.description:hover{
+    opacity: 1;
+}
+.description > *{
+    transform: translateY(25px);
+    transition: transform 0.6s;
+}
+.description:hover > *{
+    transform: translateY(0px);
+}
+
+
+.description p {
+    color: #fff; /* Text color */
+    font-size: 0.9em; /* Smaller font size */
+    line-height: 1.6;
+    margin: 0; /* Remove default margin */
+    max-height: 3.6em; /* Limit the height to three lines */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Display ellipsis (...) for overflow text */
+    
+}
+.see {
+    opacity: 0.7;
+  }

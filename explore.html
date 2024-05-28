@@ -13,12 +13,79 @@
         <div class="navigation">
             <div class="navigation-items">
             <a href="#">Home</a>
-            <a href="#">Explore</a>
             <a href="#">Gallery</a>
+            <a href="#">Explore</a>
             <a href="#">Contact</a>
         </div>
         </div>
     </header>
+    <section class="hero">
+
+        
+        <div class="foto">
+            <img src="video/maldives.jpg" alt="Maldives" class="see">
+            <div class="description">
+                <p>Maldives</p>
+            </div>
+        </div>
+    
+
+        <div class="foto below">
+            <img src="video/ksam.jpg" alt="Another Image" class="see">
+            <div class="description">
+                <p>Ksamil Beach, Albania</p>
+            </div>
+        </div>
+    
+        <div class="foto below1">
+            <img src="video/greqi.jpg" alt="Another Image" class="see">
+            <div class="description">
+                <p>Greece.</p>
+            </div>
+        </div>
+
+           <!-- Left side -->
+           
+    <div class="foto left">
+        <img src="video/canada.jpg" alt="Left Side Image" class="see">
+        <div class="description">
+            <p>Canada</p>
+        </div>
+    </div>
+
+    <div class="foto below left">
+        <img src="video/swiss.jpg" alt="Another Left Image" class="see">
+        <div class="description">
+            <p>Swiss</p>
+        </div>
+    </div>
+
+    <div class="foto below left1">
+        <img src="video/egypt.jpg" alt="Another Left Image" class="see">
+        <div class="description">
+            <p>Egypt</p>
+        </div>
+    </div>
+
+
+
+
+        <div class="runway"></div>
+        <img src="video/aroplani-removebg.png" class="plane" id="plane">
+    </section>
+    
+    
+    
+
+
+    <script>
+        document.getElementById('plane').addEventListener('click', function() {
+    this.classList.add('plane-clicked');
+    setTimeout(() => {
+        this.classList.remove('plane-clicked');
+    }, 4000); 
+});
+    </script>
 
 </body>
 </html>
