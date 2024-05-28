@@ -1,4 +1,5 @@
-/* Updated CSS */
+@import url('https://fonts.googleapis.com/css2?family=Armata&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -153,8 +154,6 @@ header .navigation .navigation-items a:hover:before {
     max-width: 285px; /* Adjusted max-width value */
     height: auto;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    
 }
 .foto.below {
     top: 55%; /* Adjusted top position */
@@ -162,9 +161,9 @@ header .navigation .navigation-items a:hover:before {
 }
 
 .foto.below img {
-    max-width: 285px; /* Adjusted max-width value */
+    width: 595px; /* Adjusted max-width value */
     border-radius: 10px; /* Reduced border radius */
-    height: auto;
+    height: 150px;
 }
 
 .foto.below .description p {
