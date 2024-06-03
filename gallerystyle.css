@@ -5,6 +5,76 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Armata", sans-serif;
+    text-transform: capitalize;
+    outline: none; border: none;
+    text-decoration: none;
+    transition: all .2s linear;
+}
+html{
+    overflow-x: hidden;
+    scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
+}
+/*section{
+    padding: 2rem 9%;
+}*/
+.btn{
+    display: inline-block;
+    margin-top: 0.8rem;
+    background: #2696E9;
+    color: #ffffff;
+    padding: .7rem 2rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: .5rem;
+}
+.btn:hover{
+    background: rgba(27, 99, 188, 0.2);
+    color: var(--aqua);
+}
+.gallery{
+    background: #2696E9;
+}
+.gallery .box-container{
+  padding: 4rem 0;
+}
+.gallery .box-container .box{
+  width: 75%;
+  margin: 4rem auto;
+  border-radius: .5rem;
+  box-shadow: 0 .3rem .5rem rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #0daeff;
+}
+.gallery .box-container .box .image{
+  height: 25rem;
+  width: 50%;
+}
+.gallery .box-container .box .image img{
+  height: 100%;
+  width: 100%;
+}
+.gallery .box-container .box .content{
+  height: 90%;
+  width: 50%;
+  padding: 2rem;
+}
+.gallery .box-container .box:nth-child(even){
+  flex-flow: row-reverse;
+}
+.gallery .box-container .box:nth-child(even) .content{
+  text-align: right;
+}
+.gallery .box-container .box .content h3{
+  font-size: 2rem;
+  font-family: "Roboto Slab", serif;
+}
+.gallery .box-container .box .content p{
+  color: #ffffff;
+  font-size: 1.2rem;
+  padding: 1rem 0;
 }
 
 header{
@@ -55,4 +125,7 @@ header .navigation .navigation-items a:before{
 
 header .navigation .navigation-items a:hover:before{
   width: 100%;  
+}
+section{
+    font-size: 69.5%;
 }
