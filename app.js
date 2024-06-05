@@ -148,3 +148,24 @@ app.ticker.add((delta) => {
         ship.x = -ship.width;
     }
 });
+
+    // Initialize date pickers
+    const arrivalsPicker = new Pikaday({
+        field: document.getElementById('arrivals'),
+        format: 'YYYY-MM-DD',
+        minDate: new Date(),
+        maxDate: new Date('2025-12-31'),
+        toString(date) {
+            return date.toISOString().split('T')[0];
+        },
+    });
+
+    const leavingPicker = new Pikaday({
+        field: document.getElementById('leaving'),
+        format: 'YYYY-MM-DD',
+        minDate: new Date(),
+        maxDate: new Date('2025-12-31'),
+        toString(date) {
+            return date.toISOString().split('T')[0];
+        },
+    });

@@ -18,6 +18,9 @@
     </nav>
 </header>
 
+<div class="blue-sky">
+    <!-- Blue sky content here -->
+</div>
 
 <div id="pixiCanvasContainer">
     <canvas id="pixiCanvas"></canvas>
@@ -27,11 +30,54 @@
     <div class="booking-container">
         <h2>Booking</h2>
         <p>Find your perfect getaway now!</p>
-        <a href="#" class="booking-button">Book Now</a>
+        <img src="video/globi.png" alt="Travel" class="booking-image">
+        <form action="#" method="post" class="booking-form">
+            <div class="form-group">
+                <label for="fname">Name:</label>
+                <input type="text" id="fname" name="fname" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <label for="lname">Surname:</label>
+                <input type="text" id="lname" name="lname" placeholder="Your Surname" required>
+            </div>
+            <div class="form-group">
+                <label for="place">Place to Visit:</label>
+                <select id="place" name="place">
+                    <option value="">Select a place</option>
+                    <option value="beach">Paris</option>
+                    <option value="mountain">Maldives</option>
+                    <option value="city">Tokyo</option>
+                    <option value="countryside">Machi Picchu</option>
+                    <option value="other">Other</option>
+                </select>
+                <input type="text" id="custom_place" name="custom_place" placeholder="Enter a place" style="display: none;">
+            </div>
+            <div class="form-group">
+                <label for="arrivals">Arrivals:</label>
+                <input type="date" id="arrivals" name="arrivals" required>
+            </div>
+            <div class="form-group">
+                <label for="leaving">Leaving:</label>
+                <input type="date" id="leaving" name="leaving" required>
+            </div>
+            <div class="guests">
+                <div class="form-group">
+                    <label for="adults">Adults:</label>
+                    <input type="number" id="adults" name="adults" min="0" max="10" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="kids">Kids:</label>
+                    <input type="number" id="kids" name="kids" min="0" max="10" value="0" required>
+                </div>
+            </div>
+            <div class="form-group full-width">
+                <button type="submit" class="booking-button">Book Now</button>
+            </div>
+        </form>
     </div>
 </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.0.4/pixi.min.js"></script>
-    <script src="app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.0.4/pixi.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
