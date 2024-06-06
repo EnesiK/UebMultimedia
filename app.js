@@ -1,4 +1,4 @@
-// Create the PixiJS application
+// Initialize PixiJS Application
 const app = new PIXI.Application({
     view: document.getElementById('pixiCanvas'),
     width: window.innerWidth,
@@ -78,7 +78,6 @@ roadLines.moveTo(0, app.screen.height - 50); // Start at the bottom of the scree
 roadLines.lineTo(app.screen.width, app.screen.height - 50); // Draw a line across the screen
 app.stage.addChild(roadLines);
 
-
 // Create the ship
 const ship = new PIXI.Graphics();
 ship.beginFill(0x8B4513);
@@ -105,6 +104,7 @@ ship.endFill();
 ship.x = app.screen.width / 2;
 ship.y = app.screen.height - 150; // Adjusted to fit the water
 app.stage.addChild(ship);
+
 // Create the plane
 const plane = new PIXI.Graphics();
 plane.beginFill(0xFFFFFF); // White color for the plane
@@ -128,6 +128,38 @@ plane.x = app.screen.width;
 plane.y = 100;
 app.stage.addChild(plane);
 
+// Create Clouds
+const clouds = [];
+
+const cloudTextures = [
+    'video/cloudremove.png',
+    'video/c1.png',
+    'video/c2.png'
+];
+
+for (let i = 0; i < 50; i++) { // Increase number of clouds
+    const cloudTexture = PIXI.Texture.from(cloudTextures[i % cloudTextures.length]);
+    const cloud = new PIXI.Sprite(cloudTexture);
+    cloud.anchor.set(0.5);
+    cloud.scale.set(0.05 + Math.random() * 0.1); // Smaller scale for variation
+    cloud.x = Math.random() * app.screen.width;
+    cloud.y = Math.random() * (app.screen.height / 2); // Distribute clouds across the sky
+    app.stage.addChild(cloud);
+    clouds.push(cloud);
+}
+
+// Create additional clouds near the ship
+for (let i = 0; i < 15; i++) { // Increase number of clouds near the ship
+    const cloudTexture = PIXI.Texture.from(cloudTextures[i % cloudTextures.length]);
+    const cloud = new PIXI.Sprite(cloudTexture);
+    cloud.anchor.set(0.5);
+    cloud.scale.set(0.05 + Math.random() * 0.1); // Smaller scale for variation
+    cloud.x = Math.random() * app.screen.width;
+    cloud.y = app.screen.height / 2 - 50 + Math.random() * 50; // Position clouds above the water but below the upper half of the screen
+    app.stage.addChild(cloud);
+    clouds.push(cloud);
+}
+
 // Animate the elements
 app.ticker.add((delta) => {
     // Move the car along the road
@@ -147,27 +179,38 @@ app.ticker.add((delta) => {
     if (ship.x > app.screen.width) {
         ship.x = -ship.width;
     }
+
+    // Animate clouds
+    clouds.forEach(cloud => {
+        cloud.x -= 1 * delta;
+        if (cloud.x < -cloud.width) {
+            cloud.x = app.screen.width + cloud.width;
+            if (cloud.y < app.screen.height / 2) {
+                cloud.y = Math.random() * (app.screen.height / 2); // Redistribute clouds across the sky
+            } else {
+                cloud.y = app.screen.height / 2 - 50 + Math.random() * 50; // Redistribute clouds above the water but below the upper half of the screen
+            }
+        }
+    });
 });
 
-    // Initialize date pickers
-    const arrivalsPicker = new Pikaday({
-        field: document.getElementById('arrivals'),
-        format: 'YYYY-MM-DD',
-        minDate: new Date(),
-        maxDate: new Date('2025-12-31'),
-        toString(date) {
-            return date.toISOString().split('T')[0];
-        },
-    });
+// Initialize date pickers
+const arrivalsPicker = new Pikaday({
+    field: document.getElementById('arrivals'),
+    format: 'YYYY-MM-DD',
+    minDate: new Date(),
+    maxDate: new Date('2025-12-31'),
+    toString(date) {
+        return date.toISOString().split('T')[0];
+    },
+});
 
-    const leavingPicker = new Pikaday({
-        field: document.getElementById('leaving'),
-        format: 'YYYY-MM-DD',
-        minDate: new Date(),
-        maxDate: new Date('2025-12-31'),
-        toString(date) {
-            return date.toISOString().split('T')[0];
-        },
-    });
-
-    
+const leavingPicker = new Pikaday({
+    field: document.getElementById('leaving'),
+    format: 'YYYY-MM-DD',
+    minDate: new Date(),
+    maxDate: new Date('2025-12-31'),
+    toString(date) {
+        return date.toISOString().split('T')[0];
+    },
+});
