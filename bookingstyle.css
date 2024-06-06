@@ -1,14 +1,69 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 body {
     font-family: Arial, sans-serif;
+}
+
+header {
+    z-index: 1000; /* Updated z-index to be above the PixiJS canvas */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Adjusted to be the same as screen */
+    display: flex;
+    justify-content: space-between;
+    background: rgba(3, 96, 251, 0.3); /* Same color as before */
+    align-items: center;
+    padding: 15px 200px; /* Adjusted padding */
+    transition: 0.5s ease;
+}
+
+
+
+header .brand {
+    color: #fff;
+    font-size: 1.5em; /* Adjusted font size */
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+header .navigation {
+    margin-left: auto;
+}
+
+header .navigation a {
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 30px;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+header .navigation a:before {
+    content: '';
+    position: absolute;
+    background: #fff;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+header .navigation a:hover:before {
+    width: 100%;
 }
 
 .booking-section {
@@ -23,19 +78,19 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 500px;
-    z-index: 2; /* Ensure booking section is above other elements */
+    z-index: 2;
 }
 
 .booking-container {
     max-width: 100%;
     margin: 0 auto;
-    position: relative; /* Added relative positioning */
+    position: relative;
 }
 
 .booking-image {
     position: absolute;
-    top: 1px; /* Adjusted top value */
-    right: 0px; /* Adjusted right value */
+    top: 1px;
+    right: 0px;
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -51,8 +106,8 @@ body {
 .booking-container p {
     font-size: 1.2em;
     margin-bottom: 20px;
-    text-align: left; /* Align text to the left */
-    padding-left: 10px; /* Adjust padding to move text to the left */
+    text-align: left;
+    padding-left: 10px;
 }
 
 .booking-button {
@@ -63,11 +118,11 @@ body {
     padding: 10px 60px;
     border-radius: 5px;
     transition: all 0.3s ease;
-    margin-top: 10px; /* Added margin top */
+    margin-top: 10px;
 }
 
 .booking-button:hover {
-    background-color: #45afc0; 
+    background-color: #45afc0;
 }
 
 .booking-form {
@@ -104,74 +159,16 @@ body {
 }
 
 .booking-form input[type="submit"]:hover {
-    background-color: #45afc0; 
+    background-color: #45afc0;
 }
 
 .booking-form .form-group.full-width {
     grid-column: span 2;
-    text-align: center; /* Center the content */
+    text-align: center;
 }
 
 .guests {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
-}
-
-header {
-    z-index: 999;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Adjusted to be the same as screen */
-    display: flex;
-    justify-content: space-between;
-    background: rgba(3, 96, 251, 0.3);
-    align-items: center;
-    padding: 15px 50px; /* Adjusted padding */
-    transition: 0.5s ease;
-}
-
-header .brand {
-    color: #fff;
-    font-size: 1.5em; /* Adjusted font size */
-    font-weight: 700;
-    text-transform: uppercase;
-    text-decoration: none;
-}
-
-header .navigation {
-    margin-left: auto; /* Pushes the navigation to the right */
-}
-
-header .navigation .navigation-items a {
-    color: #ffffff;
-    font-size: 1em;
-    font-weight: 500;
-    text-decoration: none;
-    margin-left: 30px;
-    position: relative;
-    transition: 0.3s ease;
-}
-
-header .navigation .navigation-items a:before {
-    content: '';
-    position: absolute;
-    background: #fff;
-    width: 0;
-    height: 3px;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: width 0.3s ease;
-}
-
-header .navigation .navigation-items a:hover:before {
-    width: 100%;  
-}
-
-/* Additional styles */
-* {
-    overflow-x: hidden;
-    overflow-y: hidden;
 }
